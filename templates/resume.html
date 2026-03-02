@@ -3,113 +3,188 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hiranyam Gupta | Resume</title>
+    <title>HIRANYAM GUPTA // SECURE_DOSSIER</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;500;700&display=swap');
+
         :root {
-            --bg-color: #0f172a;
-            --card-bg: #1e293b;
-            --accent-color: #38bdf8;
-            --text-main: #f8fafc;
-            --text-muted: #94a3b8;
+            --neon-blue: #00f2ff;
+            --deep-bg: #050505;
+            --terminal-green: #00ff41;
+            --text-gray: #a0a0a0;
+            --border-glow: 0 0 10px rgba(0, 242, 255, 0.3);
         }
+
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            line-height: 1.6;
+            background-color: var(--deep-bg);
+            color: var(--neon-blue);
+            font-family: 'Fira Code', monospace;
             margin: 0;
-            padding: 40px 20px;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            overflow-x: hidden;
         }
-        .container {
-            max-width: 900px;
-            margin: auto;
+
+        .terminal-window {
+            width: 100%;
+            max-width: 1000px;
+            border: 1px solid var(--neon-blue);
+            box-shadow: var(--border-glow);
+            padding: 40px;
+            background: rgba(10, 10, 10, 0.95);
+            position: relative;
         }
-        header {
-            text-align: center;
-            border-bottom: 2px solid var(--accent-color);
-            padding-bottom: 20px;
+
+        .header-glitch {
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            margin-bottom: 10px;
+            border-bottom: 1px solid var(--neon-blue);
+            display: inline-block;
+        }
+
+        .status-bar {
+            font-size: 0.8rem;
+            color: var(--terminal-green);
             margin-bottom: 30px;
+            text-transform: uppercase;
         }
-        h1 { margin: 0; color: var(--accent-color); text-transform: uppercase; }
-        .subtitle { font-size: 1.2rem; color: var(--text-muted); }
-        .contact-info { margin-top: 10px; font-size: 0.9rem; }
 
-        section { margin-bottom: 30px; }
-        h2 { border-left: 4px solid var(--accent-color); padding-left: 10px; font-size: 1.5rem; margin-bottom: 15px; }
+        section { margin-bottom: 40px; }
 
-        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-        .card { background: var(--card-bg); padding: 20px; border-radius: 8px; }
+        h2 {
+            font-size: 1.2rem;
+            color: var(--deep-bg);
+            background: var(--neon-blue);
+            display: inline-block;
+            padding: 2px 10px;
+            margin-bottom: 20px;
+        }
 
-        .project-title { font-weight: bold; color: var(--accent-color); display: block; }
-        .tag { font-size: 0.8rem; background: #0ea5e9; color: white; padding: 2px 8px; border-radius: 4px; margin-right: 5px; }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
 
-        ul { padding-left: 20px; }
-        li { margin-bottom: 5px; }
+        .data-card {
+            border: 1px solid rgba(0, 242, 255, 0.1);
+            padding: 20px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
 
-        @media (max-width: 600px) { .grid { grid-template-columns: 1fr; } }
+        .data-card:hover {
+            border-color: var(--neon-blue);
+            background: rgba(0, 242, 255, 0.05);
+            transform: translateY(-5px);
+        }
+
+        .label { color: var(--terminal-green); font-weight: bold; }
+        .value { color: white; }
+
+        .tag {
+            font-size: 0.7rem;
+            border: 1px solid var(--terminal-green);
+            color: var(--terminal-green);
+            padding: 1px 5px;
+            margin-right: 5px;
+            border-radius: 3px;
+        }
+
+        .cursor {
+            display: inline-block;
+            width: 10px;
+            height: 20px;
+            background: var(--neon-blue);
+            animation: blink 1s infinite;
+            vertical-align: middle;
+        }
+
+        @keyframes blink { 50% { opacity: 0; } }
+
+        a { color: var(--terminal-green); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+
+        /* Mobile Adjustments */
+        @media (max-width: 600px) {
+            .header-glitch { font-size: 1.5rem; }
+            .terminal-window { padding: 20px; }
+        }
     </style>
 </head>
 <body>
 
-<div class="container">
+<div class="terminal-window">
+    <div class="status-bar">SYSTEM_STATUS: ENCRYPTED // LOCATION: MUMBAI_IN // OS: ARCH_LINUX</div>
+
     <header>
-        <h1>Hiranyam Gupta</h1>
-        <div class="subtitle">Computer Science Student | Specializing in AI and ML</div>
-        <div class="contact-info">
-            Mumbai, Maharashtra | +91 8779325743 | hiranyamgupta@gmail.com <br>
-            <a href="https://www.linkedin.com/in/hiranyam-gupta/" style="color:var(--accent-color)">LinkedIn Profile</a>
-        </div>
+        <div class="header-glitch">HIRANYAM GUPTA</div>
+        <p class="value">AI/ML ARCHITECT & CYBERSECURITY ANALYST<span class="cursor"></span></p>
+        <p style="font-size: 0.9rem;">
+            [<a href="mailto:hiranyamgupta@gmail.com">EMAIL</a>]
+            [<a href="https://www.linkedin.com/in/hiranyam-gupta/">LINKEDIN</a>]
+            [<a href="#">GITHUB</a>]
+        </p>
     </header>
 
     <section>
-        <h2>Professional Profile</h2>
-        <p>Results-oriented B.Tech student and President of the S.P.A.R.C. Society[cite: 72]. Proven leadership in managing technical teams and organizing large-scale events[cite: 73]. Focused on building impactful civic-tech solutions and secure hardware-software integration[cite: 74].</p>
+        <h2>01_EXECUTIVE_SUMMARY</h2>
+        <p class="value">
+            Results-oriented B.Tech student[cite: 72]. President of the S.P.A.R.C. Society at Atlas SkillTech University[cite: 72].
+            Proven leadership in managing technical teams and organizing large-scale inter-college events[cite: 73].
+            Specializing in building impactful civic-tech solutions and secure hardware-software integration[cite: 74].
+        </p>
     </section>
 
-    <div class="grid">
-        <section class="card">
-            <h2>Technical Skills</h2>
-            <ul>
-                <li><strong>Languages:</strong> Python, Java, JavaScript, SQL [cite: 83]</li>
-                <li><strong>Tools:</strong> Git, VS Code, Linux (Arch/Ubuntu) [cite: 84, 94, 95]</li>
-                <li><strong>Specialized:</strong> Gemini API, Machine Learning, Robotics (LiDAR) [cite: 84]</li>
-                <li><strong>Design:</strong> Figma, Blender, Rhino (3D Modeling) [cite: 83, 84, 90, 93]</li>
-            </ul>
-        </section>
-
-        <section class="card">
-            <h2>Education</h2>
-            <p><strong>Bachelors in AI and Machine Learning</strong><br>
-            Atlas SkillTech University (2024–2028) [cite: 98, 99, 100]</p>
-            <p><strong>12th Standard (HSC)</strong><br>
-            Kishinchand Chellaram College [cite: 101, 102]</p>
-        </section>
-    </div>
-
     <section>
-        <h2>Key Projects</h2>
-        <div class="card" style="margin-bottom: 15px;">
-            <span class="project-title">CivicLens (AI & Cloud Security)</span>
-            <p>Built a React/Gemini API app for civic reporting with a focus on input sanitization and secure API integration to prevent injection attacks[cite: 108].</p>
-        </div>
-        <div class="card" style="margin-bottom: 15px;">
-            <span class="project-title">Autonomous Drone & LiDAR Integration</span>
-            <p>Designed a LiDAR-integrated UAV; researched signal encryption to prevent Man-in-the-Middle (MitM) interceptions[cite: 112, 113].</p>
-        </div>
-        <div class="card">
-            <span class="project-title">S.T.A.R.C. AI Chatbot</span>
-            <p>Co-created a full-stack assistant (Python/JS) featuring secure session management and protection against XSS vulnerabilities[cite: 115].</p>
+        <h2>02_CORE_COMPETENCIES</h2>
+        <div class="grid">
+            <div class="data-card">
+                <p><span class="label">LANGUAGES:</span> <span class="value">Python, Java, JavaScript, SQL [cite: 83]</span></p>
+                <p><span class="label">SEC_TOOLS:</span> <span class="value">Git, Linux (Arch/Ubuntu), Hyprland/Waybar [cite: 84]</span></p>
+            </div>
+            <div class="data-card">
+                <p><span class="label">AI_ML:</span> <span class="value">Gemini API, Machine Learning [cite: 84]</span></p>
+                <p><span class="label">ROBOTICS:</span> <span class="value">Drones, LiDAR, Compliant Mechanisms [cite: 84]</span></p>
+            </div>
         </div>
     </section>
 
     <section>
-        <h2>Leadership & Experience</h2>
+        <h2>03_SYSTEMS_DEPLOYED</h2>
+        <div class="data-card" style="margin-bottom: 15px;">
+            <p><span class="tag">AI</span> <span class="tag">SECURITY</span> <span class="value">CIVICLENS</span></p>
+            <p style="font-size: 0.9rem;">Built a React/Gemini API app for civic reporting; implemented input sanitization and secure API integration to prevent injection attacks[cite: 108].</p>
+        </div>
+        <div class="data-card" style="margin-bottom: 15px;">
+            <p><span class="tag">HARDWARE</span> <span class="tag">ENCRYPTION</span> <span class="value">AUTONOMOUS_DRONE_UAV</span></p>
+            <p style="font-size: 0.9rem;">Designed LiDAR-integrated UAV; researched signal encryption and hardware protocols to prevent MitM interceptions[cite: 112, 113].</p>
+        </div>
+        <div class="data-card">
+            <p><span class="tag">OSINT</span> <span class="tag">PYTHON</span> <span class="value">SENTIMENT_ANALYSIS_MODEL</span></p>
+            <p style="font-size: 0.9rem;">Developed model for real-time trend detection; managed secure credential and API key storage[cite: 109, 110].</p>
+        </div>
+    </section>
+
+    <section>
+        <h2>04_LEADERSHIP_HISTORY</h2>
         <ul>
-            <li><strong>President, S.P.A.R.C. Society:</strong> Leading the only tech-based student community at ATLAS SkillTech[cite: 121, 122].</li>
-            <li><strong>Safety Head, Team Mushak (NASA HERC):</strong> Placed Top 5 globally; managed rover design framework and international logistics[cite: 119, 120].</li>
-            <li><strong>Student Council Member:</strong> Oversaw inter-house activities and event management (2015–2022)[cite: 118].</li>
+            <li class="value"><span class="label">PRESIDENT:</span> S.P.A.R.C. Society // Managed university's only tech-based community[cite: 121, 122].</li>
+            <li class="value"><span class="label">NASA_HERC:</span> Safety Head // Placed Top 5 Globally; Managed rover execution and international logistics[cite: 119, 120].</li>
+            <li class="value"><span class="label">COUNCIL:</span> Student Council Member // Event management and crowd control (2015-2022)[cite: 117, 118].</li>
         </ul>
     </section>
+
+    <footer>
+        <p style="text-align: center; color: var(--text-gray); font-size: 0.7rem;">
+            -- END OF DOSSIER --<br>
+            INITIALIZED_BY_HIRANYAM_GUPTA // 2026_VERSION_1.0
+        </p>
+    </footer>
 </div>
 
 </body>
