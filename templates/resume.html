@@ -3,188 +3,233 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HIRANYAM GUPTA // SECURE_DOSSIER</title>
+    <title>Hiranyam Gupta // Portfolio</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;500;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Plus+Jakarta+Sans:wght@300;500;700&display=swap');
 
         :root {
-            --neon-blue: #00f2ff;
-            --deep-bg: #050505;
-            --terminal-green: #00ff41;
-            --text-gray: #a0a0a0;
-            --border-glow: 0 0 10px rgba(0, 242, 255, 0.3);
+            --bg-dark: #0a0a0b;
+            --sage-accent: #9dad93; /* Elegant Sage Green */
+            --sage-glow: rgba(157, 173, 147, 0.2);
+            --glass: rgba(255, 255, 255, 0.03);
+            --glass-border: rgba(255, 255, 255, 0.08);
+            --text-main: #e2e8f0;
+            --text-dim: #94a3b8;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
         }
 
         body {
-            background-color: var(--deep-bg);
-            color: var(--neon-blue);
-            font-family: 'Fira Code', monospace;
-            margin: 0;
-            padding: 20px;
-            display: flex;
-            justify-content: center;
-            overflow-x: hidden;
+            background-color: var(--bg-dark);
+            background-image: radial-gradient(circle at 50% -20%, #1a1c1e 0%, #0a0a0b 80%);
+            color: var(--text-main);
+            font-family: 'Inter', sans-serif;
+            line-height: 1.7;
+            padding: 80px 20px;
         }
 
-        .terminal-window {
-            width: 100%;
-            max-width: 1000px;
-            border: 1px solid var(--neon-blue);
-            box-shadow: var(--border-glow);
-            padding: 40px;
-            background: rgba(10, 10, 10, 0.95);
-            position: relative;
+        .container {
+            max-width: 850px;
+            margin: 0 auto;
         }
 
-        .header-glitch {
-            font-size: 2.5rem;
+        /* Glassmorphism Panel */
+        .glass-panel {
+            background: var(--glass);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 60px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+        }
+
+        header {
+            margin-bottom: 60px;
+            text-align: left;
+        }
+
+        h1 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 3rem;
             font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 5px;
-            margin-bottom: 10px;
-            border-bottom: 1px solid var(--neon-blue);
-            display: inline-block;
+            letter-spacing: -1.5px;
+            color: #fff;
+            margin-bottom: 8px;
         }
 
-        .status-bar {
-            font-size: 0.8rem;
-            color: var(--terminal-green);
-            margin-bottom: 30px;
+        .tagline {
+            color: var(--sage-accent);
+            font-weight: 500;
+            letter-spacing: 1px;
             text-transform: uppercase;
+            font-size: 0.85rem;
+            margin-bottom: 24px;
+            display: block;
         }
 
-        section { margin-bottom: 40px; }
+        section { margin-bottom: 50px; }
 
         h2 {
-            font-size: 1.2rem;
-            color: var(--deep-bg);
-            background: var(--neon-blue);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--text-dim);
+            margin-bottom: 25px;
+            border-bottom: 1px solid var(--glass-border);
+            padding-bottom: 10px;
             display: inline-block;
-            padding: 2px 10px;
-            margin-bottom: 20px;
         }
 
+        .profile-text {
+            font-size: 1.05rem;
+            font-weight: 300;
+            color: var(--text-dim);
+            max-width: 90%;
+        }
+
+        .profile-text b { color: var(--text-main); font-weight: 500; }
+
+        /* Modern Grid */
         .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
         }
 
-        .data-card {
-            border: 1px solid rgba(0, 242, 255, 0.1);
-            padding: 20px;
-            transition: all 0.3s ease;
-            position: relative;
+        .item-card {
+            padding: 24px;
+            border-radius: 16px;
+            background: rgba(255, 255, 255, 0.01);
+            border: 1px solid transparent;
+            cursor: default;
         }
 
-        .data-card:hover {
-            border-color: var(--neon-blue);
-            background: rgba(0, 242, 255, 0.05);
+        .item-card:hover {
+            background: rgba(157, 173, 147, 0.05);
+            border-color: var(--sage-accent);
             transform: translateY(-5px);
+            box-shadow: 0 10px 30px var(--sage-glow);
         }
 
-        .label { color: var(--terminal-green); font-weight: bold; }
-        .value { color: white; }
-
-        .tag {
-            font-size: 0.7rem;
-            border: 1px solid var(--terminal-green);
-            color: var(--terminal-green);
-            padding: 1px 5px;
-            margin-right: 5px;
-            border-radius: 3px;
+        .item-title {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--text-main);
         }
 
-        .cursor {
+        .item-desc {
+            font-size: 0.9rem;
+            color: var(--text-dim);
+        }
+
+        .skill-pill {
             display: inline-block;
-            width: 10px;
-            height: 20px;
-            background: var(--neon-blue);
-            animation: blink 1s infinite;
-            vertical-align: middle;
+            padding: 4px 12px;
+            border-radius: 20px;
+            background: var(--glass-border);
+            font-size: 0.75rem;
+            margin: 0 8px 8px 0;
+            color: var(--text-main);
         }
 
-        @keyframes blink { 50% { opacity: 0; } }
+        .contact-link {
+            text-decoration: none;
+            color: var(--text-dim);
+            font-size: 0.9rem;
+            margin-right: 20px;
+            border-bottom: 1px solid transparent;
+        }
 
-        a { color: var(--terminal-green); text-decoration: none; }
-        a:hover { text-decoration: underline; }
+        .contact-link:hover {
+            color: var(--sage-accent);
+            border-color: var(--sage-accent);
+        }
 
-        /* Mobile Adjustments */
-        @media (max-width: 600px) {
-            .header-glitch { font-size: 1.5rem; }
-            .terminal-window { padding: 20px; }
+        footer {
+            margin-top: 60px;
+            text-align: center;
+            font-size: 0.7rem;
+            color: var(--text-dim);
+            letter-spacing: 2px;
+        }
+
+        @media (max-width: 768px) {
+            .glass-panel { padding: 30px; }
+            .grid { grid-template-columns: 1fr; }
+            h1 { font-size: 2.2rem; }
         }
     </style>
 </head>
 <body>
 
-<div class="terminal-window">
-    <div class="status-bar">SYSTEM_STATUS: ENCRYPTED // LOCATION: MUMBAI_IN // OS: ARCH_LINUX</div>
-
-    <header>
-        <div class="header-glitch">HIRANYAM GUPTA</div>
-        <p class="value">AI/ML ARCHITECT & CYBERSECURITY ANALYST<span class="cursor"></span></p>
-        <p style="font-size: 0.9rem;">
-            [<a href="mailto:hiranyamgupta@gmail.com">EMAIL</a>]
-            [<a href="https://www.linkedin.com/in/hiranyam-gupta/">LINKEDIN</a>]
-            [<a href="#">GITHUB</a>]
-        </p>
-    </header>
-
-    <section>
-        <h2>01_EXECUTIVE_SUMMARY</h2>
-        <p class="value">
-            Results-oriented B.Tech student[cite: 72]. President of the S.P.A.R.C. Society at Atlas SkillTech University[cite: 72].
-            Proven leadership in managing technical teams and organizing large-scale inter-college events[cite: 73].
-            Specializing in building impactful civic-tech solutions and secure hardware-software integration[cite: 74].
-        </p>
-    </section>
-
-    <section>
-        <h2>02_CORE_COMPETENCIES</h2>
-        <div class="grid">
-            <div class="data-card">
-                <p><span class="label">LANGUAGES:</span> <span class="value">Python, Java, JavaScript, SQL [cite: 83]</span></p>
-                <p><span class="label">SEC_TOOLS:</span> <span class="value">Git, Linux (Arch/Ubuntu), Hyprland/Waybar [cite: 84]</span></p>
+<div class="container">
+    <div class="glass-panel">
+        <header>
+            <span class="tagline">Secure Systems // AI Architecture</span>
+            <h1>Hiranyam Gupta</h1>
+            <div style="margin-top: 15px;">
+                <a href="mailto:hiranyamgupta@gmail.com" class="contact-link">Email</a>
+                <a href="https://www.linkedin.com/in/hiranyam-gupta/" class="contact-link">LinkedIn</a>
+                <a href="#" class="contact-link">GitHub</a>
             </div>
-            <div class="data-card">
-                <p><span class="label">AI_ML:</span> <span class="value">Gemini API, Machine Learning [cite: 84]</span></p>
-                <p><span class="label">ROBOTICS:</span> <span class="value">Drones, LiDAR, Compliant Mechanisms [cite: 84]</span></p>
+        </header>
+
+        <section>
+            <h2>The Profile</h2>
+            <p class="profile-text">
+                <b>B.Tech Student & President of S.P.A.R.C. Society</b> at Atlas SkillTech University.
+                Focusing on the intersection of <b>AI resilience</b> and hardware-software integration[cite: 74].
+                Experienced in leading international technical teams and securing digital frameworks[cite: 73, 108].
+            </p>
+        </section>
+
+        <section>
+            <h2>Technical Foundations</h2>
+            <div style="margin-bottom: 20px;">
+                <span class="skill-pill">Python</span>
+                <span class="skill-pill">Java</span>
+                <span class="skill-pill">Linux (Arch)</span>
+                <span class="skill-pill">SQL</span>
+                <span class="skill-pill">Gemini API</span>
+                <span class="skill-pill">Machine Learning</span>
+                <span class="skill-pill">LiDAR Robotics</span>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section>
-        <h2>03_SYSTEMS_DEPLOYED</h2>
-        <div class="data-card" style="margin-bottom: 15px;">
-            <p><span class="tag">AI</span> <span class="tag">SECURITY</span> <span class="value">CIVICLENS</span></p>
-            <p style="font-size: 0.9rem;">Built a React/Gemini API app for civic reporting; implemented input sanitization and secure API integration to prevent injection attacks[cite: 108].</p>
-        </div>
-        <div class="data-card" style="margin-bottom: 15px;">
-            <p><span class="tag">HARDWARE</span> <span class="tag">ENCRYPTION</span> <span class="value">AUTONOMOUS_DRONE_UAV</span></p>
-            <p style="font-size: 0.9rem;">Designed LiDAR-integrated UAV; researched signal encryption and hardware protocols to prevent MitM interceptions[cite: 112, 113].</p>
-        </div>
-        <div class="data-card">
-            <p><span class="tag">OSINT</span> <span class="tag">PYTHON</span> <span class="value">SENTIMENT_ANALYSIS_MODEL</span></p>
-            <p style="font-size: 0.9rem;">Developed model for real-time trend detection; managed secure credential and API key storage[cite: 109, 110].</p>
-        </div>
-    </section>
+        <section>
+            <h2>Selected Deployments</h2>
+            <div class="grid">
+                <div class="item-card">
+                    <span class="item-title">CivicLens</span>
+                    <p class="item-desc">A React/AI application for civic reporting with a focus on input sanitization and secure API logic[cite: 108].</p>
+                </div>
+                <div class="item-card">
+                    <span class="item-title">Autonomous UAV</span>
+                    <p class="item-desc">LiDAR-integrated drone design featuring signal encryption to mitigate MitM vulnerabilities[cite: 112, 113].</p>
+                </div>
+                <div class="item-card">
+                    <span class="item-title">NASA HERC</span>
+                    <p class="item-desc">Safety Head for Team Mushak; Placed Top 5 globally managing rover logistics and design safety[cite: 119, 120].</p>
+                </div>
+                <div class="item-card">
+                    <span class="item-title">S.T.A.R.C. AI</span>
+                    <p class="item-desc">Full-stack chatbot assistant with secure session management and XSS protection protocols[cite: 115].</p>
+                </div>
+            </div>
+        </section>
 
-    <section>
-        <h2>04_LEADERSHIP_HISTORY</h2>
-        <ul>
-            <li class="value"><span class="label">PRESIDENT:</span> S.P.A.R.C. Society // Managed university's only tech-based community[cite: 121, 122].</li>
-            <li class="value"><span class="label">NASA_HERC:</span> Safety Head // Placed Top 5 Globally; Managed rover execution and international logistics[cite: 119, 120].</li>
-            <li class="value"><span class="label">COUNCIL:</span> Student Council Member // Event management and crowd control (2015-2022)[cite: 117, 118].</li>
-        </ul>
-    </section>
-
-    <footer>
-        <p style="text-align: center; color: var(--text-gray); font-size: 0.7rem;">
-            -- END OF DOSSIER --<br>
-            INITIALIZED_BY_HIRANYAM_GUPTA // 2026_VERSION_1.0
-        </p>
-    </footer>
+        <footer>
+            ESTABLISHED 2026 // BUILT ON RESILIENCE
+        </footer>
+    </div>
 </div>
 
 </body>
